@@ -1,0 +1,1 @@
+Node-Red node for the PFC8574
