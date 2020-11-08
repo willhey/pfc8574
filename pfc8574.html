@@ -1,0 +1,59 @@
+<!-- CHIP SECTION -->
+<script type="text/javascript">
+    RED.nodes.registerType('pfc8574chip',{
+        category: 'config',
+        defaults: {
+            address: {value:"0x38",required:true},
+        },
+        label: function() {
+            return this.address;
+        }
+	
+    });
+</script>
+
+<script type="text/x-red" data-template-name="pfc8574chip">
+	<div class="form-row">
+		<label for="node-config-input-address"><i class="icon-bookmark"></i> Address</label>
+		<select type="text" id="node-config-input-address" style="width:70px;">
+            <option value="0x38">0x38</option>
+            <option value="0x39">0x39</option>
+        </select>
+	</div>     
+ </script>   
+ 
+
+<script type="text/javascript">
+    RED.nodes.registerType('pfc8574',{
+        category: 'function',
+        color: '#a6bbcf',
+        defaults: {
+            name: {value:""},
+			address: {type:"pfc8574chip", required:true},
+			bit: {required:true}
+        },
+        inputs:1,
+        outputs:0,
+        icon: "",
+        label: function() {
+            return this.name||"pfc8574";
+        }
+    });
+</script>
+<script type="text/x-red" data-template-name="pfc8574">
+    <div class="form-row">
+        <label for="node-input-name"><i class="icon-tag"></i>Name</label>
+        <input type="text" id="node-input-name" placeholder="Name">
+    </div>
+	<div class="form-row">
+		<label for="node-input-address"><i class="icon-tag"></i> Address</label>
+		<input type="text" id="node-input-address" placeholder="address">
+	</div>
+	<div class="form-row">
+		<label for="node-input-bit"><i class="icon-tag"></i> bit</label>
+		<input type="number" id="node-input-bit" placeholder="bit">
+	</div>
+</script>
+<type="text/x-red" data-help-name="pfc8574">
+    <p>Node to control pfc8574</p>
+</script>
